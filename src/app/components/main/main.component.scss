@@ -1,8 +1,34 @@
+:root {
+  --scroll-bg: rgb(36, 36, 46);
+  --avatar-bg-width: 2.2rem;
+  --avatar-width: 1.4rem;
+}
+* {
+  list-style-type: none;
+  padding-inline-start: 0px;
+  margin: 0;
+}
+
 body {
   margin: 0;
   padding: 0px;
   height: 95vh;
-  background-color: #381547;
+  background-color: #e6e4bf;
+}
+
+div.dialog-window::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+div.dialog-window::-webkit-scrollbar-track {
+  background: var(--scroll-bg); /* color of the tracking area */
+  border-radius: 20px;
+}
+
+div.dialog-window::-webkit-scrollbar-thumb {
+  background-color: #e6edb4; /* color of the scroll thumb */
+  border-radius: 20px;
+  border: 2px solid var(--scroll-bg); /* creates padding around scroll thumb */
 }
 
 .outer {
@@ -66,4 +92,77 @@ body {
   height: 80%;
   background-color: #06283a;
   border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+div.dialog-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dialog-content {
+  max-width: 80%;
+}
+
+.robox-avatar-wrapper {
+  min-height: 10px;
+  margin-bottom: 5px;
+}
+
+.robox-avatar {
+  position: relative;
+  width: var(--avatar-bg-width);
+  height: var(--avatar-bg-width);
+  border-radius: 50% 50%;
+  background-color: #e6edb4;
+}
+
+.robox-img {
+  width: var(--avatar-width);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.message-unolist {
+  vertical-align: bottom;
+}
+.message-unolist > li {
+  display: inline-block;
+  text-align: left;
+}
+
+.message-date {
+  color: #c8e5b7;
+}
+
+.message-date-wrapper {
+}
+
+.message-text {
+  position: relative;
+}
+
+.message-text-wrapper {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.message-text-wrapper::after {
+  bottom: 10%;
+  left: -3%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #86bb71;
+  border-width: 10px;
+  margin-left: -10px;
+  transform: rotate(270deg);
 }
