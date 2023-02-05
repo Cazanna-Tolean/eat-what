@@ -1,1 +1,33 @@
-// @import '../scss/_tester.scss';
+// global styles
+// 無法獨立global.scss，在scss資料夾中，匯入變數
+@import "../../src/scss/colors";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+
+body {
+  height: 95vh;
+  background-color: $bg-color;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+}
+
+ul {
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+// scrollbar setting
+div.dialog-window::-webkit-scrollbar {
+  width: 12px;
+}
+
+div.dialog-window::-webkit-scrollbar-track {
+  background: $scroll-bg-color;
+  border-radius: 20px;
+}
+
+div.dialog-window::-webkit-scrollbar-thumb {
+  background-color: $bg-color;
+  border-radius: 20px;
+  border: 2px solid $scroll-bg-color;
+}

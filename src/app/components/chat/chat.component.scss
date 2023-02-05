@@ -1,0 +1,112 @@
+@import '../../../scss/mixin';
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+
+// robot avatar
+.robot-avatar-wrapper {
+}
+
+.robot-avatar {
+  width: $avatar-bg-width;
+  height: $avatar-bg-width;
+  position: relative;
+  top: 0.8rem;
+  left: -2.2rem;
+  border-radius: 50%;
+  background-color: $bg-color;
+}
+
+.robot-img {
+  @include abs-center;
+  width: $avatar-bg-width;
+  border-radius: 20px;
+}
+
+// messages
+.message-unolist {
+  vertical-align: bottom;
+}
+.message-unolist > li {
+  display: inline-block;
+  text-align: left;
+}
+
+.message-date {
+  position: relative;
+  top: -15px;
+  left: $msg-date-offset;
+  color: #c8e5b7;
+}
+
+.message-text {
+  padding: 5px;
+}
+
+.message-text-wrapper {
+  position: relative;
+  border-radius: $msg-text-border-radius;
+}
+
+// 對話三角箭頭
+.message-text-wrapper::after {
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+  top: 10%;
+  pointer-events: none;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+// robot為主體的談話
+.message-robot-side {
+  background-color: $chat-bg-color;
+}
+
+.message-robot-side.message-text-wrapper::after {
+  left: -1.3%;
+  border-bottom-color: $chat-bg-color;
+  transform: rotate(270deg);
+}
+
+// 使用者為主體的談話
+.message-client-side > p{
+    border-radius: $msg-text-border-radius;
+    box-shadow: $msg-client-shadow-color 2px 3px 4px 0px;
+}
+
+.message-client-side.message-text-wrapper::after{
+    right: -3.0%;
+    border-bottom-color: $chat-window-color;
+    filter: drop-shadow(6px -2px 3px $msg-client-shadow-color);
+    transform: rotate(90deg);
+}
+
+.message-date.message-date-client{
+    left: unset;
+    right: $msg-date-offset;
+    text-align: right;
+}
+
+.message-client-side > p{
+    color: $chat-bg-color;
+}
+
+.ans-li{
+    width: 100%
+}
+
+.ans-wrapper {
+    @include dp-center;
+    justify-content: space-around;
+}
+
+.ans {   
+    width: 6rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    color: $bg-color;
+    border-radius: 10px;
+    box-shadow: $msg-client-shadow-color 1px 3px 5px 2px;
+}
