@@ -2,7 +2,6 @@
 
 # Tech Stack
 Angular 14
-Vite 
 SCSS
 
 # start

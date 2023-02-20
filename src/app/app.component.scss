@@ -8,26 +8,12 @@ body {
   background-color: $bg-color;
   font-family: "Playfair Display", serif;
   font-size: 18px;
+  scroll-behavior: smooth;
 }
 
 ul {
+  // rest Edge browser style
   padding-inline-start: 0;
   margin-block-start: 0;
   margin-block-end: 0;
-}
-
-// scrollbar setting
-div.dialog-window::-webkit-scrollbar {
-  width: 12px;
-}
-
-div.dialog-window::-webkit-scrollbar-track {
-  background: $scroll-bg-color;
-  border-radius: 20px;
-}
-
-div.dialog-window::-webkit-scrollbar-thumb {
-  background-color: $bg-color;
-  border-radius: 20px;
-  border: 2px solid $scroll-bg-color;
 }

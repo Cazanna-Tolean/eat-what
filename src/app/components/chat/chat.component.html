@@ -1,40 +1,91 @@
-<ul class="message-unolist">
-  <li>
-    <div class="message-text-wrapper message-client-side">
-      <p class="message-text">
-        ctetur ad這是對話內容框 quastae consequatur dignissimos esse
-        explicabo in, non, inventore harum! Impedit voluptate
-        reprehenderit maiores ex. Sint facilis vero aliquid.
-      </p>
+<div class="dialog-wrapper">
+  <!-- <div class="dialog-window" #msgUl (scroll)="onEleScroll($event)"> -->
+  <div class="dialog-window" #msgUl>
+    <div class="dialog-content">
+      <ul class="message-unolist">
+        <!-- asking customer -->
+        <ng-container *ngFor="let chatText of allChatContent">
+          <!-- user -->
+          <li *ngIf="chatText.side === 'user'">
+            <div class="message-text-wrapper message-client-side">
+              <p class="message-text">
+                {{ chatText.content }}
+              </p>
+            </div>
+
+            <div class="message-date-wrapper">
+              <div class="message-date message-date-client">{{chatText.timing}}</div>
+            </div>
+          </li>
+          <!-- system -->
+          <li *ngIf="chatText.side === 'system'">
+            <div class="robot-avatar-wrapper">
+              <div class="robot-avatar">
+                <img
+                  class="robot-img"
+                  src="../../../assets/pics/asker.svg"
+                  alt="asker"
+                />
+              </div>
+            </div>
+            <div class="message-text-wrapper message-robot-side">
+              <p class="message-text">
+                {{ chatText.content }}
+              </p>
+            </div>
+
+            <div class="message-date-wrapper">
+              <div class="message-date">{{chatText.timing}}</div>
+            </div>
+          </li>
+          <!-- system suspense 沿用robot樣式 -->
+          
+          <li *ngIf="chatText.side === 'suspense'">
+            <div class="robot-avatar-wrapper">
+              <div class="suspense robot-avatar">
+              </div>
+            </div>
+            <div class="suspense message-text-wrapper message-robot-side">
+              <!-- loading animation -->
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+              <div class="tide"></div>
+            </div>
+
+            <div class="message-date-wrapper">
+              <div class="suspense message-date"></div>
+            </div>
+          </li>
+        </ng-container>
+
+        <!-- customer's response -->
+        <li *ngIf="!isLoading" class="ans-li">
+          <div class="ans-wrapper">
+            <div></div>
+            <div
+              class="ans"
+              #agreeTag
+              (click)="goOnChat(true, agreeTag.innerText)"
+            >
+              YES
+            </div>
+            <div
+              class="ans"
+              #disagreeTag
+              (click)="goOnChat(false, disagreeTag.innerText)"
+            >
+              NO
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-    
-    <div class="message-date-wrapper">
-      <div class="message-date message-date-client">10:14</div>
-    </div>
-  </li>
-  <li>
-    <div class="robot-avatar-wrapper">
-      <div class="robot-avatar">
-        <img class="robot-img" src="../../../assets/pics/asker.svg" alt="asker">
-      </div>
-    </div>
-    <div class="message-text-wrapper message-robot-side">
-      <p class="message-text">
-        ctetur ad這是對話內容框 quastae consequatur dignissimos esse
-        explicabo in, non, inventore harum! Impedit voluptate
-        reprehenderit maiores ex. Sint facilis vero aliquid.
-      </p>
-    </div>
-    
-    <div class="message-date-wrapper">
-      <div class="message-date">10:14</div>
-    </div>
-  </li>
-  <li class="ans-li">
-    <div class="ans-wrapper">
-      <div></div>
-      <div class="ans">YES</div>
-      <div class="ans">NO</div>
-    </div>
-  </li>
-</ul>
+  </div>
+</div>

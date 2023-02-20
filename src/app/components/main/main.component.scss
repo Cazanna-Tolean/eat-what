@@ -3,6 +3,11 @@
 @import '../../../scss/variables';
 
 // container's size
+app-chat{
+  width: 50%;
+  height: 100%;
+}
+
 .outer {
   height: 95%;
 }
@@ -44,31 +49,4 @@
 .menu-pic {
   @include abs-center;
   width: 80%;
-}
-
-// dialog: right half
-.dialog {
-  @include dp-center;
-  width: 100%;
-  height: 100%;
-}
-
-.dialog-wrapper {
-  @include dp-center;
-  justify-content: flex-start;
-  height: 100%;
-}
-
-.dialog-window {
-  @include dp-center;
-  align-items: initial;
-  width: 80%;
-  height: 80%;
-  overflow: auto;
-  background-color: $chat-window-color;
-  border-radius: 2rem;
-}
-
-.dialog-content {
-  max-width: 80%;
 }
