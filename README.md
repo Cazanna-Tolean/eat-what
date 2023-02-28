@@ -5,19 +5,19 @@
 <details>
   <summary>Description List</summary>
   <ol> 
-    <li><a href="##demo">Demo</a></li>
-    <li><a href="##about-the-project">About The Project</a>
-      <ul><li><a href="###built-with">Built With</a></li></ul>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#about-the-project">About The Project</a>
+      <ul><li><a href="#built-with">Built With</a></li></ul>
     </li>
     <li>
-      <a href="##getting-started">Getting Started</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="###prerequisites">Prerequisites</a></li>
-        <li><a href="###installation">Installation</a></li>
-        <li><a href="###how-to-use?">How to Use?</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#how-to-use?">How to Use?</a></li>
       </ul>
     </li>
-    <li><a href="##thanks">Thanks</a></li>
+    <li><a href="#thanks">Thanks</a></li>
   </ol>
 </details>
 
