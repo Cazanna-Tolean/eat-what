@@ -21,18 +21,27 @@ export class ChatComponent implements OnInit {
 
   constructor() {
     this.allChatContent = mockChatContent;
-    this.allChatContent.forEach((item)=>{
-      item.timing = this.getTiming();
-    });
     this._mealService = new MealService();
     this.allMeals = this._mealService.takeMeals();
+
+    // asker提出任一選擇，已確保至少會有菜色
+    const firstMeal = this.randomMeal();
+    this.allChatContent.push({
+      side: "system",
+      content: firstMeal,
+      timing: ""
+    });
+
+    this.allChatContent.forEach((item) => {
+      item.timing = this.getTiming();
+    });
   }
 
   ngOnInit(): void {
   }
 
   goOnChat(answer: boolean, ansEleText: string) {
-    
+
     const currentTime = this.getTiming() as string;
     this.allChatContent.push({
       side: "user",
@@ -46,7 +55,7 @@ export class ChatComponent implements OnInit {
         setTimeout(resolve, n * 1000);
       });
     }
-    
+
     // answer is "true" meanings find what they likes;
     if (answer === true) {
       const waitTillDone = async () => {
@@ -126,8 +135,15 @@ export class ChatComponent implements OnInit {
     this.chatScrollWrap.nativeElement.scrollTop = this.chatScrollWrap.nativeElement.scrollHeight;
   }
 
-  private getTiming():string{
+  private getTiming(): string {
+    function timingStrLen(str: string) {
+      //timing lenght at least 2
+      if (str.length < 2) {
+        return "0" + str;
+      }
+      return str;
+    }
     const rightNow = new Date();
-    return rightNow.getHours() + ":" + rightNow.getMinutes();
+    return timingStrLen(rightNow.getHours().toString()) + ":" + timingStrLen(rightNow.getMinutes().toString());
   }
 }
